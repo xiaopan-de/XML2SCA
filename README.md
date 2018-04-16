@@ -172,6 +172,10 @@ Module is specified by child element `<module>`. Basic information of the module
 <module name = "name"  type = "sca"  moc = "tdf"  desc = "description">
 </module>
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4649a886d5e16e3d142038f5f2f73838149c9f29
 | Attributes    | Description           | Restrictions          |
 |: ------------- |:---------------------|: ---------------------|
 | name          | module name           | no whitespace allowed |
@@ -186,6 +190,10 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```xml
 <port_in  name = "name"  ptype = "sca_tdf::sca_in"  dtype = "double"  desc = " description"/>
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4649a886d5e16e3d142038f5f2f73838149c9f29
 | Attributes    | Description | Restrictions          |
 |: ------------ |:----------- |: ---------------------|
 | name          | port name   | no whitespace allowed |
@@ -197,6 +205,10 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```xml
 <port_out  name = "name"  ptype = "sca_tdf::sc_out"  dtype = "double"  desc = " description"/>
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4649a886d5e16e3d142038f5f2f73838149c9f29
 | Attributes    | Description | Restrictions          |
 |: ------------ |:----------- |: ---------------------|
 | name          | port name   | no whitespace allowed |
@@ -208,6 +220,10 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```xml
 <cpara name = "name"  dtype = "double"  defval = "default value"  desc = "description"/>
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4649a886d5e16e3d142038f5f2f73838149c9f29
 | Attributes    | Description     | Restrictions          |
 |: ------------ |:--------------- |: ---------------------|
 | name          | parameter name  | no whitespace allowed |
@@ -271,6 +287,7 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 </toplevel>
 ```
 
+<<<<<<< HEAD
 | Elements and Attributes    | Description     | Restrictions          |   
 |: ------------     |:--------------- |: ---------------------|   
 | ->sim_conf-> tstep  | time step in second   | no whitespace allowed |   
@@ -281,6 +298,18 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 | ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|   
 | ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
 | ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |   
+=======
+| Elements and Attributes    | Description     | Restrictions          |
+|: ------------     |:--------------- |: ---------------------|
+| ->sim_conf-> tstep  | time step in second   | no whitespace allowed |
+| ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |
+| ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |
+| ->instance-> name     | instance name   | no whitespace allowed |
+| ->instance-> module  | refered module name  | must be in the module elements |
+| ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|
+| ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |
+| ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |
+>>>>>>> 4649a886d5e16e3d142038f5f2f73838149c9f29
 
 
 
@@ -288,6 +317,7 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 
 ## Contact ##
 **Xiao Pan**
+<<<<<<< HEAD
 Chair of Design of Cyber-Physical Systems   
 TU Kaiserslautern   
 Postfach 3049   
@@ -302,3 +332,19 @@ TU Kaiserslautern
 Postfach 3049   
 67653 Kaiserslautern   
 <grimm@cs.uni-kl.de>   
+=======
+Chair of Design of Cyber-Physical Systems
+TU Kaiserslautern
+Postfach 3049
+67653 Kaiserslautern
+<pan@cs.uni-kl.de>
+https://cps.cs.uni-kl.de/
+
+
+**Christoph Grimm**
+Chair of Design of Cyber-Physical Systems
+TU Kaiserslautern
+Postfach 3049
+67653 Kaiserslautern
+<grimm@cs.uni-kl.de>
+>>>>>>> 4649a886d5e16e3d142038f5f2f73838149c9f29
