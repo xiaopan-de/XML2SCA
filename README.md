@@ -3,15 +3,15 @@
 This tool enables auto-generation of SystemC and SystemC-AMS codes through a XML file. The generated project includes: SC/SCA module codes(.cpp, .h), CMake files, a toplevel module (if a toplevel structure is specified), and it also  creates executable testbench for each individual module.
 
 ## Motivation ##
-It was intented to aid SystemC-AMS beginners to start up modeling and simulation quickly by avoiding manually writing testbenches and building utilities such as makefile or cmakes. This tool does not take IP-XACT (IEEE 1685-2014) as an input, because it puts extra effort to the beginners. Moreover IP-XACT consists too mamy details from a system-level perspective, most of which are often not used by non-vendor users. Instead, input of this tool has simple syntax that concentrates more on the development of module's behaviour, such as input/output ports, module parameters, etc. Beside this, XML based modeling management also has other benefits such as:
+It was intended  to aid SystemC-AMS beginners to start up modeling and simulation quickly by avoiding manually writing testbenches and building utilities such as Makefile or Cmakes. This tool does not take IP-XACT (IEEE 1685-2014) as an input, because it puts extra effort to the beginners. Moreover IP-XACT consists too many details from a system-level perspective, most of which are often not used by non-vendor users. Instead, input of this tool has simple syntax that concentrates more on the development of module's behaviour, such as input/output ports, module parameters, etc. Beside this, XML based modeling management also has other benefits such as:
 
 - Consistent code style in projects, workgroups
-- Intuitive abstruct information of modules
-- Easier in module-libary management, maintenance and documentation
+- Intuitive abstract information of modules
+- Easier in module-library  management, maintenance and documentation
 - Easier in module exchange, reuse, and extension
 - Reduce effort in setting up projects
-- Reduce errort in setting up massive configuration parameters
-- Extensiable for UI design
+- Reduce effort in setting up massive configuration parameters
+- Extensible  for UI design
 
 ## Features and Limitations ##
 + Simple XML rules to define SC/SCA modules
@@ -21,13 +21,13 @@ It was intented to aid SystemC-AMS beginners to start up modeling and simulation
 + Support SysemC hierarchical structure
 - _No support for TLM_
 - _No support for toplevel interconnections_
-- _ No support for templete class_
+- _ No support for template  class_
 
 
 ## Installation ##
 0. We assume you have a UNIX style system, e.g. OSX or Linux.
 1. GCC version 4.9 or higher and CMake version 2.8 or higher are required.
-2. Make a directory `builddir` in the top level directory:
+2. Make a directory `builddir` in the top-level directory:
 ```
 > mkdir builddir
 ```
@@ -39,7 +39,7 @@ It was intented to aid SystemC-AMS beginners to start up modeling and simulation
 ```
 
 ## Usage of XML2SCA##
-Application program is by default installed in the folder `XML2SCA/bin/`. Excute with argument **-f/--file** to pass project xml file or   **-h/--help** to print help information:
+Application program is by default installed in the folder `XML2SCA/bin/`. Execute with argument **-f/--file** to pass project xml file or   **-h/--help** to print help information:
 ```
 Usage:
  ./XML2SCA [OPTION...]
@@ -61,11 +61,11 @@ PROJECT_NAME
 ├── CMakeLists.txt          # Top CMake configuration file
 |
 ├── configs                 # Configuration files folder
-│   └── cfg.json            # Toplevel simulation configration file (json)
+│   └── cfg.json            # Toplevel simulation configuration  file (json)
 |
 ├── src                             # Source files folder
 │   ├── basic                       # Files for utilitie functions incl. json and file parser
-│   ├── CMakeLists                  # CMake configration
+│   ├── CMakeLists                  # CMake configuration
 │   ├── main.cpp                    # Main function file
 │   ├── sca_tdf_MODULE1_NAME.cpp    # module1 implementation file (cpp file)
 │   ├── sca_tdf_MODULE1_NAME.h      # module1 declaration file    (header file)
@@ -90,7 +90,7 @@ export SYSTEMC_BASE = PathToInstallationSystemC/systemc-2.3.0
 export SYSTEMCAMS_BASE = PathToInstallationSystemCAMS/systemc_ams
 ```
 
-2. Build the auto-generateed SC/SCA project :
+2. Build the auto-generated  SC/SCA project :
 ```
 > cd PROJECT_NAME
 > mkdir builddir
@@ -100,14 +100,14 @@ export SYSTEMCAMS_BASE = PathToInstallationSystemCAMS/systemc_ams
 ```
 
 ###  Execute Simulation  ###
-1. Set up system configurations and parameters in the json configration file `/PROJECT_NAME/tb/MODULE_NAME/cfg.json`, e.g. simulation timestep, simulation duration, tracefile formate, etc:
+1. Set up system configurations and parameters in the json configuration  file `/PROJECT_NAME/tb/MODULE_NAME/cfg.json`, e.g. simulation timestep, simulation duration, tracefile format, etc:
 ```json
 {
  "system":{
      "tstep"        : 1e-9,
      "tsim"         : 10e-9,
      "tracefile"    : "vcd",
-     "_comment"     : "unit of time is second, trace file formate can be [vcd] or [tabular] "
+     "_comment"     : "unit of time is second, trace file format  can be [vcd] or [CVS] "
  },
  "i_MODULE_NAME":{
      "PARAMETER1"   : "VALUE1",
@@ -117,8 +117,8 @@ export SYSTEMCAMS_BASE = PathToInstallationSystemCAMS/systemc_ams
 }
 ```
 
-2.  Implement behavior of module.
-This is an option step to execut a simulation, since the auto-generated testbench for module is executable. Although, the behavior of the generated module is empty, and stimuli simlply writes 0 to the outputs and prints input ports' readin.
+2.  Implement behaviour  of module.
+This is an option step to execute  a simulation, since the auto-generated testbench for module is executable. Although, the behaviour  of the generated module is empty, and stimuli simply writes 0 to the outputs and prints input ports' read-in.
 
 3. Execute Simulation:
 ```
@@ -139,7 +139,7 @@ Info: simulation of 1e-08 SEC complete. (took 0.000914 sec )
 ```
 
 ### Tracefile analysis ###
-A tracefile (VCD or CSV formate according to the specifications) is generated in the folder `PROJECT_NAME/bin` where you execut the testbench. Traces of all in/output ports are saved. A list of waveform viewer can be found [here](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Waveform_viewer.html) .
+A tracefile (VCD or CSV format according to the specifications) is generated in the folder `PROJECT_NAME/bin` where you simulate the testbench. Traces of all in/output ports are saved. A list of waveform viewer can be found [here](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Waveform_viewer.html) .
 
 
 
@@ -152,7 +152,7 @@ The project XML specifies the SC/SCA module and project information to the tool 
 ### Project Information  ###
 Project information is passing by the attributes in the first child element `<info>`. This element can appear multi-times but only the first appearance will be parsed. Five attributes are defined:
 ```xml
-<info name = "name"  author = "author"  date = "date"  desc = "description"  toplevelOnly = "true" ></info>
+<info name = "name"  author = "author"  date = "date"  desc = "description"  toplevelOnly = "true" />
 ```
 
 
@@ -165,13 +165,33 @@ Project information is passing by the attributes in the first child element `<in
 | toplevelOnly  | See below     |  **true** or **false**  |
 
 
-Attribute **_toplevelOnly_** specifies the generation output of the project. If it is set to **_false_**, program will generate and overwrite (if they exit) all modules' components incl. C++ files, testbenches. So to prevent your code from being overwritten, always make a copy of the generated project folder to your own workspace. Set **_toplevelOnly_** to **_true_** if you have complet each individual model development and want to make a toplevel binding.
+Attribute **_toplevelOnly_** specifies the generation output of the project. If it is set to **_false_**, program will generate and overwrite (if they exit) all modules' components incl. C++ files, testbenches. So to prevent your code from being overwritten, always make a copy of the generated project folder to your own workspace. Set **_toplevelOnly_** to **_true_** if you have complete each individual model development and goes to make a toplevel binding.
+
+
+
+#### A module example - adder   ####
+Following lists a module example of an half-adder module.  A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, **parameters** `<cpara>` (pass through constructor), and user defined  **functions** `<ufunc>`. They are specified by the child element of `<module>`. In the next sections, detailed explanation  will be given. 
+
+```xml
+<module name = "adder"  type = "sca"  moc = "tdf"  desc = "addition of two inputs">
+ <port_in   name = "A"  ptype = "sca_tdf::sca_in"   dtype = "bool"  desc = "input  A"/>
+ <port_in   name = "B"  ptype = "sca_tdf::sca_in"   dtype = "bool"  desc = "input  B"/>
+ <port_out  name = "S"  ptype = "sca_tdf::sca_out"  dtype = "bool"  desc = "output sum S"/>
+ <port_out  name = "C"  ptype = "sca_tdf::sca_out"  dtype = "bool"  desc = "output carry C"/>
+ <cpara name = "delay"  dtype = "double"  defval = ""   desc = "delay from input to the output, in [ns]"/>
+ <cpara name = "rate"   dtype = "double"  defval = "1"  desc = "output port rate"/>
+ <ufunc  name = "reset"  accessor = "public"  desc = "reset from software call">
+       <return type = "bool" desc="return ture if reset successes" />
+        <code > <![CDATA[ temp_c = temp_s = 0; ]]></code>
+ </ufunc>
+</module>
+```
+
 
 ### Module  ###
 Module is specified by child element `<module>`. Basic information of the module such as name, type are given through its attributes.
 ```xml
-<module name = "name"  type = "sca"  moc = "tdf"  desc = "description">
-</module>
+<module name = "name"  type = "sca"  moc = "tdf"  desc = "description"></module>
 ```
 | Attributes    | Description           | Restrictions          |
 | ------------- | --------------------- | --------------------- |
@@ -181,7 +201,6 @@ Module is specified by child element `<module>`. Basic information of the module
 | desc          | description           |  -                 |
 
 
-A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, **parameters** `<cpara>` (pass through constructor), and user defined  **functions** `<ufunc>`. They are specified by the child element of `<module>`:
 
 #### Input port   ####
 ```xml
@@ -240,25 +259,10 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 | ->code            | pre-defeined code     |  -   |
 
 
-#### A complete module example - adder   ####
-```xml
-<module name = "adder"  type = "sca"  moc = "tdf"  desc = "addition of two inputs">
- <port_in   name = "A"  ptype = "sca_tdf::sca_in"   dtype = "bool"  desc = "input  A"/>
- <port_in   name = "B"  ptype = "sca_tdf::sca_in"   dtype = "bool"  desc = "input  B"/>
- <port_out  name = "S"  ptype = "sca_tdf::sca_out"  dtype = "bool"  desc = "output sum S"/>
- <port_out  name = "C"  ptype = "sca_tdf::sca_out"  dtype = "bool"  desc = "output carry C"/>
- <cpara name = "delay"  dtype = "double"  defval = ""   desc = "delay from input to the output, in [ns]"/>
- <cpara name = "rate"   dtype = "double"  defval = "1"  desc = "output port rate"/>
- <ufunc  name = "reset"  accessor = "public"  desc = "reset from software call">
-       <return type = "bool" desc="return ture if reset succussed" />
-        <code > <![CDATA[ temp_c = temp_s = 0; ]]></code>
- </ufunc>
-</module>
-```
 
 
 ### Top Level ###
-The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is an optional element in the project. But only the first appearance in the project xml file will be parsed. It has no attribute. And contains the following subelement:
+The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is an optional element in the project. But only the first appearance in the project xml file will be parsed. It has no attribute, and contains  sub-element of `sim_conf`, `instance`, `interconnect`:
 ```xml
 <toplevel>
  <!-- simulation configuration -->
@@ -278,8 +282,8 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 | ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |   
 | ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
 | ->instance-> name     | instance name   | no whitespace allowed |   
-| ->instance-> module  | refered module name  | must be in the module elements |   
-| ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|   
+| ->instance-> module  | referred  module name  | refers to the module elements |   
+| ->instance-> para->name  | para name  | must be referred  to the parameter name of the selected module|   
 | ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
 | ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |   
 
