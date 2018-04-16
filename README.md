@@ -146,9 +146,11 @@ A tracefile (VCD or CSV format according to the specifications) is generated in 
 
 
 ## Project XML file definition and Rules ##
-The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`.   
-_More examples can be found in the exmaple folder. 
-_
+The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. Following figure shows the structure of a complete project xml file. Detailed explanation can be found below.
+[xmlstructure](docs/xmlstructure.png)
+ 
+ *More examples can be found in the `exmaple` folder.*  
+
 ### Project Information  ###
 Project information is passing by the attributes in the first child element `<info>`. This element can appear multi-times but only the first appearance will be parsed. Five attributes are defined:
 ```xml
@@ -285,7 +287,7 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 | ->instance-> module  | referred  module name  | refers to the module elements |   
 | ->instance-> para->name  | para name  | must be referred  to the parameter name of the selected module|   
 | ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
-| ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |   
+| interconnect  | NOT IMPLEMENTED YET  | - |   
 
 
 
