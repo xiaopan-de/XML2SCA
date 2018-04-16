@@ -160,7 +160,7 @@ Project information is passing by the attributes in the first child element `<in
 
 | Attributes    | Description   | Restrictions            |
 | ------------- |-------------| -----------------------|
-| name          | project name  | no whitespace allowed   |
+| name          | project name  | all whitespace will be removed  |
 | author        | project author| -                       |
 | date          | created date  | -                       |
 | desc          | description   | -                       |
@@ -195,7 +195,7 @@ Module is specified by child element `<module>`. Basic information of the module
 ```
 | Attributes    | Description           | Restrictions          |
 | ------------- | --------------------- | --------------------- |
-| name          | module name           | no whitespace allowed |
+| name          | module name           | all whitespace will be removed  |
 | type          | module type           | **sc** (systemc) or **sca**  (systemc-ams)     |
 | moc           | model of computation  | **tdf**,  **eln**, or **lsf**   |
 | desc          | description           |  -                 |
@@ -208,7 +208,7 @@ Module is specified by child element `<module>`. Basic information of the module
 ```
 | Attributes    | Description | Restrictions          |
 | ------------- |------------ | ---------------------|
-| name          | port name   | no whitespace allowed |
+| name          | port name   | all whitespace will be removed  |
 | ptype         | port type   | **sca_tdf::sca_in**/**sc_in**, **sc_core::sc_in**    |
 | dtype         | data type   | all data types support by C++  |
 | desc          | description |  -                 |
@@ -219,7 +219,7 @@ Module is specified by child element `<module>`. Basic information of the module
 ```
 | Attributes    | Description | Restrictions          |
 | ------------- | ----------- | --------------------- |
-| name          | port name   | no whitespace allowed |
+| name          | port name   | all whitespace will be removed  |
 | ptype         | port type   | **sca_tdf::sca_out**/**sc_in**, **sc_core::sc_in**    |
 | dtype         | data type   | all data types support by C++  |
 | desc          | description |  -                 |
@@ -230,7 +230,7 @@ Module is specified by child element `<module>`. Basic information of the module
 ```
 | Attributes    | Description     | Restrictions          |
 | ------------  |---------------  | ---------------------|
-| name          | parameter name  | no whitespace allowed |
+| name          | parameter name  | all whitespace will be removed  |
 | dtype         | data type       | all data types support by C++  |
 | defval        | default value   | refers to data type, no whitespace, can be empty   |
 | desc          | description     |  -                    |
@@ -245,12 +245,12 @@ Module is specified by child element `<module>`. Basic information of the module
 ```
 | Elements and Attributes    | Description     | Restrictions          |
 | ------------      | --------------- | ---------------------|
-| name              | function name   | no whitespace allowed |
+| name              | function name   | all whitespace will be removed  |
 | accessor          | accessor tyoe   | **public**(default), **private**, **protected**  |
 | desc              | description     |  -                    |
-| ->return->type    | return value type  |empty for ‘void‘   |
+| ->return->type    | return value type  |whitespace will NOT be removed,  empty for ‘void‘   |
 | ->return->desc    | return value description  | -   |
-| ->para->name      | parameter name  | no whitespace allowed  |
+| ->para->name      | parameter name  | whitespace will be removed   |
 | ->para->dtype     | data type       | all data types support by C++  |
 | ->para->defval    | default value   | refers to data type, no whitespace, can be empty   |
 | ->para->desc      | description     |  -                    |
@@ -276,10 +276,10 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 
 | Elements and Attributes    | Description     | Restrictions          |   
 | ------------     |--------------- | ---------------------|   
-| ->sim_conf-> tstep  | time step in second   | no whitespace allowed |   
-| ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |   
+| ->sim_conf-> tstep  | time step in second   | whitespace will be removed  |   
+| ->sim_conf-> tsim  | simulation time insecond   | whitespace will be removed  |   
 | ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
-| ->instance-> name     | instance name   | no whitespace allowed |   
+| ->instance-> name     | instance name   | whitespace will be removed  |   
 | ->instance-> module  | referred  module name  | refers to the module elements |   
 | ->instance-> para->name  | para name  | must be referred  to the parameter name of the selected module|   
 | ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
