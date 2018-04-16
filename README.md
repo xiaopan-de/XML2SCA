@@ -270,16 +270,16 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 </toplevel>
 ```
 
-| Elements and Attributes    | Description     | Restrictions          |
-|: ------------     |:--------------- |: ---------------------|
-| ->sim_conf-> tstep  | time step in second   | no whitespace allowed |
-| ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |
-| ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |
-| ->instance-> name     | instance name   | no whitespace allowed |
-| ->instance-> module  | refered module name  | must be in the module elements |
-| ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|
-| ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |
-| ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |
+| Elements and Attributes    | Description     | Restrictions          |   
+|: ------------     |:--------------- |: ---------------------|   
+| ->sim_conf-> tstep  | time step in second   | no whitespace allowed |   
+| ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |   
+| ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
+| ->instance-> name     | instance name   | no whitespace allowed |   
+| ->instance-> module  | refered module name  | must be in the module elements |   
+| ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|   
+| ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
+| ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |   
 
 
 
