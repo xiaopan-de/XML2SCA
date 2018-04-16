@@ -147,7 +147,7 @@ A tracefile (VCD or CSV format according to the specifications) is generated in 
 
 ## Project XML file definition and Rules ##
 The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. Following figure shows the structure of a complete project xml file. Detailed explanation can be found below.
-[xmlstructure](docs/xmlstructure.png)
+![xmlstructure](docs/xmlstructure.png)
  
  *More examples can be found in the `exmaple` folder.*  
 
