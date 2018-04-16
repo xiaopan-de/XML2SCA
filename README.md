@@ -145,13 +145,13 @@ A tracefile (VCD or CSV format according to the specifications) is generated in 
 
 
 
-## Project XML file definition and Rules ##
+## Project XML file definition and rules ##
 The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. Following figure shows the structure of a complete project xml file. Detailed explanation can be found below.
 ![xmlstructure](docs/xmlstructure.png)
  
  *More examples can be found in the `exmaple` folder.*  
 
-### Project Information  ###
+### Project Information  `<info>` ###
 Project information is passing by the attributes in the first child element `<info>`. This element can appear multi-times but only the first appearance will be parsed. Five attributes are defined:
 ```xml
 <info name = "name"  author = "author"  date = "date"  desc = "description"  toplevelOnly = "true" />
@@ -171,7 +171,7 @@ Attribute **_toplevelOnly_** specifies the generation output of the project. If 
 
 
 
-### SC/SCA Module  ###
+### SC/SCA Module  `<module>` ###
 Following lists a module example of an half-adder module.  A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, **parameters** `<cpara>` (pass through constructor), and user defined  **functions** `<ufunc>`. They are specified by the child element of `<module>`. In the next sections, detailed explanation  will be given. 
 
 ```xml
@@ -189,8 +189,6 @@ Following lists a module example of an half-adder module.  A module consists of 
 </module>
 ```
 
-
-#### Module  ####
 Module is specified by child element `<module>`. Basic information of the module such as name, type are given through its attributes.
 ```xml
 <module name = "name"  type = "sca"  moc = "tdf"  desc = "description"></module>
@@ -204,7 +202,7 @@ Module is specified by child element `<module>`. Basic information of the module
 
 
 
-#### Input port   ####
+1. `<port_in>` input port    
 ```xml
 <port_in  name = "name"  ptype = "sca_tdf::sca_in"  dtype = "double"  desc = " description"/>
 ```
@@ -215,7 +213,7 @@ Module is specified by child element `<module>`. Basic information of the module
 | dtype         | data type   | all data types support by C++  |
 | desc          | description |  -                 |
 
-#### Output port   ####
+2. `<port_out>` output port    
 ```xml
 <port_out  name = "name"  ptype = "sca_tdf::sc_out"  dtype = "double"  desc = " description"/>
 ```
@@ -226,7 +224,7 @@ Module is specified by child element `<module>`. Basic information of the module
 | dtype         | data type   | all data types support by C++  |
 | desc          | description |  -                 |
 
-#### Parameter   ####
+3.  `<cpara>` : module parameter   
 ```xml
 <cpara name = "name"  dtype = "double"  defval = "default value"  desc = "description"/>
 ```
@@ -237,8 +235,7 @@ Module is specified by child element `<module>`. Basic information of the module
 | defval        | default value   | refers to data type, no whitespace, can be empty   |
 | desc          | description     |  -                    |
 
-#### User defeined function   ####
-
+4.   `<ufunc>` : user defeined function 
 ```xml
 <ufunc  name = "name"  accessor = "public"  desc = "description">
      <return type = "void" desc="description" />
@@ -246,7 +243,6 @@ Module is specified by child element `<module>`. Basic information of the module
       <code > <![CDATA[ "Predefined code" ]]></code>
 </ufunc>
 ```
-
 | Elements and Attributes    | Description     | Restrictions          |
 | ------------      | --------------- | ---------------------|
 | name              | function name   | no whitespace allowed |
@@ -263,7 +259,7 @@ Module is specified by child element `<module>`. Basic information of the module
 
 
 
-### Top Level ###
+### `<toplevel>`: toplevel infomation and structure  ###
 The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is an optional element in the project. But only the first appearance in the project xml file will be parsed. It has no attribute, and contains  sub-element of `sim_conf`, `instance`, `interconnect`:
 ```xml
 <toplevel>
