@@ -154,6 +154,7 @@ Project information is passing by the attributes in the first child element `<in
 ```xml
 <info name = "name"  author = "author"  date = "date"  desc = "description"  toplevelOnly = "true" ></info>
 ```
+
 | Attributes    | Description   | Restrictions            |
 |: ------------- |:-------------|: -----------------------|
 | name          | project name  | no whitespace allowed   |
@@ -270,16 +271,16 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 </toplevel>
 ```
 
-| Elements and Attributes    | Description     | Restrictions          |
-|: ------------     |:--------------- |: ---------------------|
-| ->sim_conf-> tstep  | time step in second   | no whitespace allowed |
-| ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |
-| ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |
-| ->instance-> name     | instance name   | no whitespace allowed |
-| ->instance-> module  | refered module name  | must be in the module elements |
-| ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|
-| ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |
-| ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |
+| Elements and Attributes    | Description     | Restrictions          |   
+|: ------------     |:--------------- |: ---------------------|   
+| ->sim_conf-> tstep  | time step in second   | no whitespace allowed |   
+| ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |   
+| ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
+| ->instance-> name     | instance name   | no whitespace allowed |   
+| ->instance-> module  | refered module name  | must be in the module elements |   
+| ->instance-> para->name  | para name  | must be refered to the parameter name of the selected module|   
+| ->instance-> para->val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
+| ->instance-> interconnect  | NOT IMPLEMENTED YET  | - |   
 
 
 
@@ -287,17 +288,17 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 
 ## Contact ##
 **Xiao Pan**
-Chair of Design of Cyber-Physical Systems
-TU Kaiserslautern
-Postfach 3049
-67653 Kaiserslautern
-<pan@cs.uni-kl.de>
-https://cps.cs.uni-kl.de/
+Chair of Design of Cyber-Physical Systems   
+TU Kaiserslautern   
+Postfach 3049   
+67653 Kaiserslautern   
+<pan@cs.uni-kl.de>   
+https://cps.cs.uni-kl.de/   
 
 
-**Christoph Grimm**
-Chair of Design of Cyber-Physical Systems
-TU Kaiserslautern
-Postfach 3049
-67653 Kaiserslautern
-<grimm@cs.uni-kl.de>
+**Christoph Grimm**   
+Chair of Design of Cyber-Physical Systems   
+TU Kaiserslautern   
+Postfach 3049   
+67653 Kaiserslautern   
+<grimm@cs.uni-kl.de>   
