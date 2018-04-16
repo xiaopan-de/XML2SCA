@@ -259,7 +259,7 @@ Module is specified by child element `<module>`. Basic information of the module
 
 
 
-### `<toplevel>`: toplevel infomation and structure  ###
+### Toplevel `<toplevel>`  ###
 The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is an optional element in the project. But only the first appearance in the project xml file will be parsed. It has no attribute, and contains  sub-element of `sim_conf`, `instance`, `interconnect`:
 ```xml
 <toplevel>
