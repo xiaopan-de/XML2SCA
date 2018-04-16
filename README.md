@@ -38,7 +38,7 @@ It was intended  to aid SystemC-AMS beginners to start up modeling and simulatio
 > make
 ```
 
-## Usage of XML2SCA##
+## Usage of XML2SCA ##
 Application program is by default installed in the folder `XML2SCA/bin/`. Execute with argument **-f/--file** to pass project xml file or   **-h/--help** to print help information:
 ```
 Usage:
@@ -48,7 +48,7 @@ Usage:
  -h, --help  Print help (default: false)
 ```
 
-## Usage of Generated SC/SCA project##
+## Usage of Generated SC/SCA project ##
 
 After calling the above command and if there is no error occurs, a folder with the project name specified in the XML file can been seen at the same location where the program is executed.
 
@@ -145,10 +145,10 @@ A tracefile (VCD or CSV format according to the specifications) is generated in 
 
 
 
-## Project XML file definition and Rules##
-The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`.
-
-
+## Project XML file definition and Rules ##
+The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`.   
+_More examples can be found in the exmaple folder. 
+_
 ### Project Information  ###
 Project information is passing by the attributes in the first child element `<info>`. This element can appear multi-times but only the first appearance will be parsed. Five attributes are defined:
 ```xml
@@ -169,7 +169,7 @@ Attribute **_toplevelOnly_** specifies the generation output of the project. If 
 
 
 
-#### A module example - adder   ####
+### SC/SCA Module  ###
 Following lists a module example of an half-adder module.  A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, **parameters** `<cpara>` (pass through constructor), and user defined  **functions** `<ufunc>`. They are specified by the child element of `<module>`. In the next sections, detailed explanation  will be given. 
 
 ```xml
@@ -188,7 +188,7 @@ Following lists a module example of an half-adder module.  A module consists of 
 ```
 
 
-### Module  ###
+#### Module  ####
 Module is specified by child element `<module>`. Basic information of the module such as name, type are given through its attributes.
 ```xml
 <module name = "name"  type = "sca"  moc = "tdf"  desc = "description"></module>
