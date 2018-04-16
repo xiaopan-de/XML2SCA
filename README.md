@@ -225,7 +225,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```
 
 | Elements and Attributes    | Description     | Restrictions          |
-|: ------------     |:--------------- |: ---------------------|
+| ------------     | --------------- | ---------------------|
 | name              | function name   | no whitespace allowed |
 | accessor          | accessor tyoe   | **public**(default), **private**, **protected**  |
 | desc              | description     |  -                    |
