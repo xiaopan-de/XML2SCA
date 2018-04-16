@@ -154,6 +154,7 @@ Project information is passing by the attributes in the first child element `<in
 ```xml
 <info name = "name"  author = "author"  date = "date"  desc = "description"  toplevelOnly = "true" ></info>
 ```
+
 | Attributes    | Description   | Restrictions            |
 |: ------------- |:-------------|: -----------------------|
 | name          | project name  | no whitespace allowed   |
@@ -171,6 +172,7 @@ Module is specified by child element `<module>`. Basic information of the module
 <module name = "name"  type = "sca"  moc = "tdf"  desc = "description">
 </module>
 ```
+
 | Attributes    | Description           | Restrictions          |
 |: ------------- |:---------------------|: ---------------------|
 | name          | module name           | no whitespace allowed |
@@ -185,6 +187,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```xml
 <port_in  name = "name"  ptype = "sca_tdf::sca_in"  dtype = "double"  desc = " description"/>
 ```
+
 | Attributes    | Description | Restrictions          |
 |: ------------ |:----------- |: ---------------------|
 | name          | port name   | no whitespace allowed |
@@ -196,6 +199,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```xml
 <port_out  name = "name"  ptype = "sca_tdf::sc_out"  dtype = "double"  desc = " description"/>
 ```
+
 | Attributes    | Description | Restrictions          |
 |: ------------ |:----------- |: ---------------------|
 | name          | port name   | no whitespace allowed |
@@ -207,6 +211,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```xml
 <cpara name = "name"  dtype = "double"  defval = "default value"  desc = "description"/>
 ```
+
 | Attributes    | Description     | Restrictions          |
 |: ------------ |:--------------- |: ---------------------|
 | name          | parameter name  | no whitespace allowed |
