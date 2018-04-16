@@ -154,8 +154,10 @@ Project information is passing by the attributes in the first child element `<in
 ```xml
 <info name = "name"  author = "author"  date = "date"  desc = "description"  toplevelOnly = "true" ></info>
 ```
+
+
 | Attributes    | Description   | Restrictions            |
-|: ------------- |:-------------|: -----------------------|
+| ------------- |-------------| -----------------------|
 | name          | project name  | no whitespace allowed   |
 | author        | project author| -                       |
 | date          | created date  | -                       |
@@ -172,7 +174,7 @@ Module is specified by child element `<module>`. Basic information of the module
 </module>
 ```
 | Attributes    | Description           | Restrictions          |
-|: ------------- |:---------------------|: ---------------------|
+| ------------- | --------------------- | --------------------- |
 | name          | module name           | no whitespace allowed |
 | type          | module type           | **sc** (systemc) or **sca**  (systemc-ams)     |
 | moc           | model of computation  | **tdf**,  **eln**, or **lsf**   |
@@ -186,7 +188,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 <port_in  name = "name"  ptype = "sca_tdf::sca_in"  dtype = "double"  desc = " description"/>
 ```
 | Attributes    | Description | Restrictions          |
-|: ------------ |:----------- |: ---------------------|
+| ------------- |------------ | ---------------------|
 | name          | port name   | no whitespace allowed |
 | ptype         | port type   | **sca_tdf::sca_in**/**sc_in**, **sc_core::sc_in**    |
 | dtype         | data type   | all data types support by C++  |
@@ -197,7 +199,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 <port_out  name = "name"  ptype = "sca_tdf::sc_out"  dtype = "double"  desc = " description"/>
 ```
 | Attributes    | Description | Restrictions          |
-|: ------------ |:----------- |: ---------------------|
+| ------------- | ----------- | --------------------- |
 | name          | port name   | no whitespace allowed |
 | ptype         | port type   | **sca_tdf::sca_out**/**sc_in**, **sc_core::sc_in**    |
 | dtype         | data type   | all data types support by C++  |
@@ -208,7 +210,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 <cpara name = "name"  dtype = "double"  defval = "default value"  desc = "description"/>
 ```
 | Attributes    | Description     | Restrictions          |
-|: ------------ |:--------------- |: ---------------------|
+| ------------  |---------------  | ---------------------|
 | name          | parameter name  | no whitespace allowed |
 | dtype         | data type       | all data types support by C++  |
 | defval        | default value   | refers to data type, no whitespace, can be empty   |
@@ -225,7 +227,7 @@ A module consists of **input ports**`<port_in>`, **output ports** `<port_out>`, 
 ```
 
 | Elements and Attributes    | Description     | Restrictions          |
-| ------------     | --------------- | ---------------------|
+| ------------      | --------------- | ---------------------|
 | name              | function name   | no whitespace allowed |
 | accessor          | accessor tyoe   | **public**(default), **private**, **protected**  |
 | desc              | description     |  -                    |
@@ -271,7 +273,7 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 ```
 
 | Elements and Attributes    | Description     | Restrictions          |   
-|: ------------     |:--------------- |: ---------------------|   
+| ------------     |--------------- | ---------------------|   
 | ->sim_conf-> tstep  | time step in second   | no whitespace allowed |   
 | ->sim_conf-> tsim  | simulation time insecond   | no whitespace allowed |   
 | ->sim_conf-> tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
