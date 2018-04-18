@@ -152,20 +152,20 @@ The project XML specifies the SC/SCA module and project information to the tool 
 <?xml version="1.0" encoding="UTF-8"?>
 <SCSCA_Project>
   <info name="demo_proj" author = "Xiao Pan (pan@cs.uni-kl.de)" date="2018-04-05" toplevelOnly="false" desc= "demo project of [XML2AMS]"/>
-  <module name="adc" 	type="sca" 		moc="tdf" 			desc="analogto-digital converter model">
+  <module name="adc" 	type="sca" moc="tdf" desc="analogto-digital converter model">
       <port_in  name="analog"    ptype="sca_tdf::sca_in"   dtype ="double"         desc="analog  input" />
       <port_out name="digital"   ptype="sca_tdf::sc_out"   dtype ="uint16_t"       desc="digital output " />
-      <cpara    name="res"   dtype="int"  defval="12"  desc="adc's resolution, 12 bits by default" />
+      <cpara    name="res"       dtype="int"               defval="12"             desc="adc's resolution, 12 bits by default" />
       <ufunc    name="set_res"   accessor="public"  desc="Software interface to set adc resolution (accepted values : 9/10/11/12 bits)">
-          <return   type = "bool"   desc="True if set resolution successfuly" />
+          <return type = "bool"   desc="True if set resolution successfuly" />
           <para name="res"    dtype="unsigned int"    defval=""      desc="ADC resolution in bits" />
           <para name="enable" dtype="bool"            defval="true"  desc="Sampling rate" />
           <code > <![CDATA[ std::cout<<  " Set ADC's resolution to "<< _res <<std::endl ;]]> </code>
       </ufunc>
   </module>
-  <module name="sine"    type="sca" 		moc="tdf" 	desc="sine wave generator">
+  <module name="sine" type="sca" moc="tdf" desc="sine wave generator">
      <port_out   name="sine" ptype="sca_tdf::sca_out"  dtype ="double"   desc="" />
-     <cpara      name="freq" dtype="double" defval="1e6"  desc= "genertaed signal frequency [Hz], default set to 1Mhz" />
+     <cpara      name="freq" dtype="double"     defval="1e6"  desc= "genertaed signal frequency [Hz], default set to 1Mhz" />
      <cpara      name="amp"  dtype="double"     defval="1.0"   desc= "output amplitude [volt], default set to 1.0" />
   </module>  
   <toplevel>
