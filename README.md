@@ -65,7 +65,7 @@ PROJECT_NAME
 │   └── cfg.json            # Toplevel simulation configuration  file (json)
 |
 ├── src                             # Source files folder
-│   ├── basic                       # Files for utilitie functions incl. json and file parser
+│   ├── basic                       # Files for utility functions incl. json and file parser
 │   ├── CMakeLists                  # CMake configuration
 │   ├── main.cpp                    # Main function file
 │   ├── sca_tdf_MODULE1_NAME.cpp    # module1 implementation file (cpp file)
@@ -75,12 +75,12 @@ PROJECT_NAME
 │   └── ...
 │
 └── tb                              # testbench folder for all modules
-   ├── MODULE1_NAME                # testbench folder for module1
-   │   ├── main.cpp                # Main function file
-   │   ├── sc_top.h                # toplevel component
-   │   ├── cfg.json                # parameter configuration for testbench toplevel
+   ├── MODULE1_NAME                 # testbench folder for module1
+   │   ├── main.cpp                 # Main function file
+   │   ├── sc_top.h                 # toplevel component
+   │   ├── cfg.json                 # parameter configuration for testbench toplevel
    │   └── CMakeLists.txt
-   ├── MODULE2_NAME                # testbench folder for module2
+   ├── MODULE2_NAME                 # testbench folder for module2
    ...
 ```
 
@@ -139,15 +139,15 @@ readout MODULE_NAME-pout[conv] = 0
 Info: simulation of 1e-08 SEC complete. (took 0.000914 sec )
 ```
 
-## 2.4 Tracefile analysis 
-A tracefile (VCD or CSV format specified in the XML file) is generated in the folder `PROJECT_NAME/bin` where you simulate the testbench. Traces of all in/output ports are saved. A list of waveform viewer can be found [here](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Waveform_viewer.html) .
+## 2.4 Trace file analysis 
+Tracefiles (VCD or CSV format specified in the XML file) for toplevel simulation and each testbench of models are generated in the folder `PROJECT_NAME/bin` where you run the simulation. Traces of all in/output ports are saved. A list of waveform viewer can be found [here](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Waveform_viewer.html) .
 
 
 
 
 
 # Section 3 : SCSCA Project XML file definition and rules 
-The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. Following figure shows the structure of a complete project xml file. Detailed explanation can be found below.  *More examples can be found in the `exmaple` folder.*  
+The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. Following figure shows the structure of a complete project xml file. Detailed explanation can be found below.  *More examples can be found in the `example` folder.*  
 
 <p><img src="https://4ibutw.dm.files.1drv.com/y4m-ck3Dr9Zyt-lRpmwrbZD6oG6I2rcBFE3N16oAiqRkKxHQSvW62vZamFXqb619aPQfoBTYTePDc0tdcKQJV5bJSWC02QMa9CyqgSNILh_15DIS9HJ5NC7FDCna7KGgFTKiTgZbtDtaABtGBB-UzvVGEQ_aLKTQ9udM7hHQJzAlWByvKasPuD4yDGW7TXIGCbViyVHLmHqMI63_XIuAllqRQ?width=1225&height=1345&cropmode=none"  width ="50%" alt="SCSCA Project XML definition and structure"/>
 </p> 
@@ -278,14 +278,14 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 
 | Elements and Attributes    | Description     | Restrictions          |   
 | ------------     |--------------- | ---------------------|   
-| &lt;sim_conf>- tstep  | time step in second   | whitespace will be removed  |   
-| &lt;sim_conf>- tsim  | simulation time insecond   | whitespace will be removed  |   
+| &lt;sim_conf>- tstep      | time step in second   | whitespace will be removed  |   
+| &lt;sim_conf>- tsim       | simulation time in second   | whitespace will be removed  |   
 | &lt;sim_conf>- tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
-| &lt;instance>- name     | instance name   | whitespace will be removed  |   
-| &lt;instance>- module  | referred  module name  | refers to the module elements |   
+| &lt;instance>- name       | instance name   | whitespace will be removed  |   
+| &lt;instance>- module     | referred  module name  | refers to the module elements |   
 | &lt;instance>- &lt;para>-name  | para name  | must be referred  to the parameter name of the selected module|   
-| &lt;instance>- &lt;para>-val  | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
-| &lt;interconnect>  | NOT IMPLEMENTED YET  | - |   
+| &lt;instance>- &lt;para>-val   | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
+| &lt;interconnect>         | NOT IMPLEMENTED YET  | - |   
 
 
 
