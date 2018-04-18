@@ -159,7 +159,6 @@ The project XML specifies the SC/SCA module and project information to the tool 
       <ufunc    name="set_res"   accessor="public"  desc="Software interface to set adc resolution (accepted values : 9/10/11/12 bits)">
           <return type = "bool"   desc="True if set resolution successfuly" />
           <para name="res"    dtype="unsigned int"    defval=""      desc="ADC resolution in bits" />
-          <para name="enable" dtype="bool"            defval="true"  desc="Sampling rate" />
           <code > <![CDATA[ std::cout<<  " Set ADC's resolution to "<< _res <<std::endl ;]]> </code>
       </ufunc>
   </module>
