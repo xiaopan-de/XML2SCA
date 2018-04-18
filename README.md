@@ -291,22 +291,18 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 
 <hr/>
 #### Contact 
+**Xiao Pan**
+Chair of Design of Cyber-Physical Systems
+TU Kaiserslautern
+Postfach 3049
+67653 Kaiserslautern
+<pan@cs.uni-kl.de>
+https://cps.cs.uni-kl.de/
 
-<table >
-  <tr>
-    <th>**Xiao Pan**
-    Chair of Design of Cyber-Physical Systems
-    TU Kaiserslautern
-    Postfach 3049
-    67653 Kaiserslautern
-    <pan@cs.uni-kl.de>
-    https://cps.cs.uni-kl.de/
-</th>
-    <th>**Christoph Grimm**
-    Chair of Design of Cyber-Physical Systems
-    TU Kaiserslautern
-    Postfach 3049
-    67653 Kaiserslautern
-    <grimm@cs.uni-kl.de></th> 
-  </tr>
-</table>
+
+**Christoph Grimm**
+Chair of Design of Cyber-Physical Systems
+TU Kaiserslautern
+Postfach 3049
+67653 Kaiserslautern
+<grimm@cs.uni-kl.de>
