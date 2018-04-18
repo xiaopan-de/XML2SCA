@@ -147,7 +147,40 @@ Tracefiles (VCD or CSV format specified in the XML file) for toplevel simulation
 
 
 # Section 3 : SCSCA Project XML file definition and rules 
-The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. Following figure shows the structure of a complete project xml file. Detailed explanation can be found below.  *More examples can be found in the `example` folder.*  
+The project XML specifies the SC/SCA module and project information to the tool XML2SCA. It starts with root element `<SCSCA_Project>`. The following shows a exmaple XML content and a figure of the structure. Detailed explanation can be found below.  *More examples can be found in the `example` folder.*  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SCSCA_Project>
+  <info name="demo_proj" author = "Xiao Pan (pan@cs.uni-kl.de)" date="2018-04-05" toplevelOnly="false" desc= "demo project of [XML2AMS]"/>
+  <module name="adc" 	type="sca" 		moc="tdf" 			desc="analogto-digital converter model">
+      <port_in  name="analog"    ptype="sca_tdf::sca_in"   dtype ="double"         desc="analog  input" />
+      <port_out name="digital"   ptype="sca_tdf::sc_out"   dtype ="uint16_t"       desc="digital output " />
+      <cpara    name="res"   dtype="int"  defval="12"  desc="adc's resolution, 12 bits by default" />
+      <ufunc    name="set_res"   accessor="public"  desc="Software interface to set adc resolution (accepted values : 9/10/11/12 bits)">
+          <return   type = "bool"   desc="True if set resolution successfuly" />
+          <para name="res"    dtype="unsigned int"    defval=""      desc="ADC resolution in bits" />
+          <para name="enable" dtype="bool"            defval="true"  desc="Sampling rate" />
+          <code > <![CDATA[ std::cout<<  " Set ADC's resolution to "<< _res <<std::endl ;]]> </code>
+      </ufunc>
+  </module>
+  <module name="sine"    type="sca" 		moc="tdf" 	desc="sine wave generator">
+     <port_out   name="sine" ptype="sca_tdf::sca_out"  dtype ="double"   desc="" />
+     <cpara      name="freq" dtype="double" defval="1e6"  desc= "genertaed signal frequency [Hz], default set to 1Mhz" />
+     <cpara      name="amp"  dtype="double"     defval="1.0"   desc= "output amplitude [volt], default set to 1.0" />
+  </module>  
+  <toplevel>
+    <sim_conf tstep ="1e-9" tsim="1e-3" tracefile="vcd"/>
+    <instance name="adc" module="adc">
+      <para name= "res"   val = "10"/>
+    </instance>
+    <instance name = "sensor" module="sine">
+      <para name= "freq"    val = "1e6"/>
+      <para name= "amp"     val = "0.5"/>
+    </instance>
+    <interconnect> </interconnect>
+  </toplevel>
+</SCSCA_Project>
+```
 
 <p><img src="https://4ibutw.dm.files.1drv.com/y4m-ck3Dr9Zyt-lRpmwrbZD6oG6I2rcBFE3N16oAiqRkKxHQSvW62vZamFXqb619aPQfoBTYTePDc0tdcKQJV5bJSWC02QMa9CyqgSNILh_15DIS9HJ5NC7FDCna7KGgFTKiTgZbtDtaABtGBB-UzvVGEQ_aLKTQ9udM7hHQJzAlWByvKasPuD4yDGW7TXIGCbViyVHLmHqMI63_XIuAllqRQ?width=1225&height=1345&cropmode=none"  width ="50%" alt="SCSCA Project XML definition and structure"/>
 </p> 
