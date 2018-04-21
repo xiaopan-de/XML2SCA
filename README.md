@@ -18,6 +18,7 @@ It was intended  to aid SystemC-AMS beginners to start up modelling and simulati
 + Auto-generation of executable testbench for each individual module
 + Auto-generation of JSON configuration files and automatically parse to instances
 + Support SysemC hierarchical structure
++ Support adding user-defined functions and codes
 - *No support for TLM*
 - *No support for toplevel interconnections*
 - *No support for template  class*
@@ -25,7 +26,7 @@ It was intended  to aid SystemC-AMS beginners to start up modelling and simulati
 
 
 ## 1.3 Installation 
-0. This tool is available at github : Go to [Download](https://github.com/panxiao-tech/XML2SCA)
+0. This tool is available at github : Go to [github-XML2SCA](https://github.com/panxiao-tech/XML2SCA)
 1. We assume you have a UNIX style system, e.g. OSX or Linux.
 2. GCC version 4.9, CMake version 2.8, or higher are required.
 3. Make a directory `builddir` in the top-level directory:
@@ -157,7 +158,7 @@ The project XML specifies the SC/SCA module and project information to the tool 
       <port_out name="digital"   ptype="sca_tdf::sc_out"   dtype ="uint16_t"       desc="digital output " />
       <cpara    name="res"       dtype="int"               defval="12"             desc="adc's resolution, 12 bits by default" />
       <ufunc    name="set_res"   accessor="public"  desc="Software interface to set adc resolution (accepted values : 9/10/11/12 bits)">
-          <return type = "bool"   desc="True if set resolution successfuly" />
+          <return type = "bool"   desc="True if set resolution successed" />
           <para name="res"    dtype="unsigned int"    defval=""      desc="ADC resolution in bits" />
           <code > <![CDATA[ std::cout<<  " Set ADC's resolution to "<< _res <<std::endl ;]]> </code>
       </ufunc>
@@ -312,30 +313,9 @@ The toplevel module is enclosed in the child element `<toplevel>`. Toplevel is a
 | ------------     |--------------- | ---------------------|   
 | &lt;sim_conf>- tstep      | time step in second   | whitespace will be removed  |   
 | &lt;sim_conf>- tsim       | simulation time in second   | whitespace will be removed  |   
-| &lt;sim_conf>- tracefile  | trace file formation   | **vcd** or **csv**(tablular) |   
+| &lt;sim_conf>- tracefile  | trace file formation   | **vcd** or **csv** |   
 | &lt;instance>- name       | instance name   | whitespace will be removed  |   
 | &lt;instance>- module     | referred  module name  | refers to the module elements |   
 | &lt;instance>- &lt;para>-name  | para name  | must be referred  to the parameter name of the selected module|   
 | &lt;instance>- &lt;para>-val   | value pass to the parameter  | refers to data type, no whitespace, can be empty |   
 | &lt;interconnect>         | NOT IMPLEMENTED YET  | - |   
-
-
-
-<hr/>
-
-#### Contact 
-**Xiao Pan**   
-Chair of Design of Cyber-Physical Systems   
-TU Kaiserslautern   
-Postfach 3049   
-67653 Kaiserslautern   
-<pan@cs.uni-kl.de>   
-https://cps.cs.uni-kl.de/   
-
-
-**Christoph Grimm**   
-Chair of Design of Cyber-Physical Systems   
-TU Kaiserslautern   
-Postfach 3049   
-67653 Kaiserslautern   
-<grimm@cs.uni-kl.de>   

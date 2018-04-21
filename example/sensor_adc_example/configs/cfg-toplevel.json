@@ -1,0 +1,19 @@
+{
+	"system":{
+		"tstep"        : 10e-9,
+		"tsim"         : 10e-6,
+		"tracefile"    : "vcd",
+		"_comment"     : "unit of time is second, trace file formate can be [vcd] or [tabular]"
+	},
+	"i_adc":{
+		"vref"         : 1.0,
+		"res"          : 12,
+		"rate"         : 1,
+		"fs"           : 100e6
+	},
+	"i_sensor":{
+		"offset"       : 0.5,
+		"freq"         : 1e6,
+		"amp"          : 0.5
+	}
+}

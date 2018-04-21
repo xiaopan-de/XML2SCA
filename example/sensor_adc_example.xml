@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCSCA_Project>
+  <info name="sensor_adc_example" author = "Xiao Pan (pan@cs.uni-kl.de)" date="2018-04-05" toplevelOnly="false" desc= "Example project of [XML2AMS]"/>
+  <!-- Module ADC -->
+  <module name="adc" 	type="sca" 		moc="tdf" 			desc="analogto-digital converter model">
+      <port_in  name="pos"    ptype="sca_tdf::sca_in"   dtype ="double"         desc="power supply voltage positive input" />
+      <port_in  name="neg"    ptype="sca_tdf::sca_in"   dtype ="double"         desc="power supply voltage negative input" />
+      <port_out name="conv"   ptype="sca_tdf::sc_out"   dtype ="uint16_t"       desc="digital output " />
+      <cpara    name="vref"   dtype="double"            defval="1.0"            desc="ADC reference voltage, default is set to 1 [volt]" />
+      <cpara    name="res"    dtype="unsigned int"      defval="12"             desc="ADC resolution, default is set to 12 [bits]" />
+      <cpara    name="fs"     dtype="double"           defval="100e6"          desc="sampling rate, default is set to 100M [Hz]" />
+      <cpara    name="rate"   dtype="int"               defval="1"              desc="Output port rate, default is set to 1" />
+      <ufunc    name="set_res"        accessor="public"           desc="Software interface to set adc resolution (accepted values : 9/10/11/12 bits)">
+          <return   type = "bool"   desc="True if set resolution successfuly" />
+          <para name="res"    dtype="unsigned int"    defval=""      desc="ADC resolution in bits" />
+          <para name="enable" dtype="bool"            defval="true"  desc="Sampling rate" />
+          <code > <![CDATA[ std::cout<<  " Set ADC's resolution to "<< _res <<std::endl ;]]> </code>
+      </ufunc>
+      <ufunc    name="set_fs"        accessor="public"           desc="Software interface to change sampling rate ">
+          <return   type = "bool"   desc="True if set resolution successfuly" />
+          <para name="fs"     dtype="double"   defval=""      desc= "Updated ADC resolution in bits" />
+          <para name="enable" dtype="bool"     defval="true"  desc= "Enable change resolution from software call" />
+          <code > <![CDATA[ std::cout<<  "Set ADC's Sampling Rate to <<_fs  <<std::endl ;]]> </code>
+      </ufunc>
+      <ufunc name="max_value" accessor="private" desc="return maximum converted value of ADC ">
+                  <return   type = "uint16_t" desc="" />
+                  <para name="value" dtype="uint16_t" defval="" desc= "" />
+                  <code ></code>
+      </ufunc>
+  </module>
+  <!-- Module sine wage generator (sensor) -->
+  <module name="sine"    type="sca" 		moc="tdf" 	desc="sine wave generator">
+    <port_out   name="sine"   ptype="sca_tdf::sca_out"  dtype ="double"   desc="" />
+    <cpara      name="freq"     dtype="double"          defval="1e6"      desc= "genertaed signal frequency [Hz], default set to 1Mhz" />
+    <cpara      name="amp"      dtype="double"          defval="1.0"      desc= "output amplitude [volt], default set to 1.0" />
+    <cpara      name="offset"   dtype="double"          defval="0.0"      desc= "output offset [volt], default set to 0.0" />
+  </module>
+  <module name="drain"  type="sca" 		moc="tdf" 	desc="drain">
+		<port_in  name="d" ptype="sca_tdf::sc_in" dtype ="uint16_t" desc="" />
+	</module>
+  <module name="gnd"  type="sca" 		moc="tdf" 	desc="ground signal">
+    <port_out  name="gnd" ptype="sca_tdf::sca_out" dtype ="double" desc="" />
+  </module>
+  <!-- Top level -->
+  <toplevel>
+    <sim_conf tstep ="1e-9" tsim="1e-3" tracefile="vcd"/>
+    <instance name="adc" module="adc">
+      <para name= "vref"  val = "1.0"/>
+      <para name= "res"   val = "12"/>
+      <para name= "fs"    val = "100e6"/>
+      <para name= "rate"  val = "1"/>
+    </instance>
+    <instance name = "sensor" module="sine">
+      <para name= "freq"    val = "1e6"/>
+      <para name= "amp"     val = "0.5"/>
+      <para name= "offset"  val = "0.5"/>
+    </instance>
+    <instance name = "drain" module="drain">
+    </instance>
+    <instance name = "gnd" module="gnd">
+    </instance>
+    <interconnect> </interconnect>
+  </toplevel>
+</SCSCA_Project>

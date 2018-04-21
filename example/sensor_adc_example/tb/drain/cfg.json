@@ -1,0 +1,11 @@
+{
+	"system":{
+		"tstep"        : 1e-9,
+		"tsim"         : 1e-3,
+		"tracefile"    : "vcd",
+		"_comment"     : " unit of time is second, trace file formate can be [vcd] or [tabular] "
+	},
+	"i_drain":{
+
+	}
+}
