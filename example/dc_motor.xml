@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCSCA_Project>
+  <info name="ect_sc" author = "Xiao Pan (pan@cs.uni-kl.de)" date="2018-05-31" toplevelOnly="false" desc= "DC Motor for Throttle Control"/>
+  <!-- Module sine wage generator (sensor) -->
+  <module name="throttle_motor"    type="sca" 		moc="tdf" 	desc="Throttle body">
+    <port_in   name="v"     ptype="sca_tdf::sca_in"   dtype ="double"  desc= "DC motor control voltage" />
+    <port_out  name="a"     ptype="sca_tdf::sca_out"  dtype ="double"  desc= "throttle position (angle in rad)" />
+    <port_out  name="i" ptype="sca_tdf::sca_out"  dtype ="double"  desc= "instant current of the DC circuiy in ampere" />
+    <cpara     name="Jeq"   dtype="double"          defval="0.0021"      desc= "Equivalent- moment of inertia of the rotor,  kg.m^2" />
+    <cpara     name="Beq"   dtype="double"          defval="0.0088"      desc= "Equivalent- motor viscous friction constant, Nms" />
+    <cpara     name="K"     dtype="double"          defval="0.383"      desc= "repl. Kb (electromotive force constant/back emf, V/rad/sec) and Km (motor torque constant, Nm/Amp)" />
+    <cpara     name="R"     dtype="double"          defval="1.5"        desc= "electric resistance, ohm" />
+    <cpara     name="L"     dtype="double"          defval="1.5e-3"      desc= "electric inductance, H" />
+    <cpara     name="Ks"    dtype="double"          defval="0.087"      desc= "spring constant of the return spring, Nm/rad" />
+    <cpara     name="Tpl"   dtype="double"          defval="0.396"      desc= "Spring pre-load torque, Nm" />
+    <cpara     name="Tf"    dtype="double"          defval="0.284"      desc= "Friction torque, Nm" />
+  </module>
+  <module name="ref"    type="sca" 		moc="tdf" 	desc="sine wave generator">
+    <port_out   name="vol"   ptype="sca_tdf::sca_out"  dtype ="double"   desc="" />
+  </module>
+  <module name="drain"  type="sca" 		moc="tdf" 	desc="drain">
+		<port_in  name="d" ptype="sca_tdf::sca_in" dtype ="uint16_t" desc="" />
+	</module>
+  <!-- Top level -->
+</SCSCA_Project>

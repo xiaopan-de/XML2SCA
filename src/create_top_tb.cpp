@@ -241,7 +241,7 @@ namespace xml2sca
             *pstrJsonfile<<"\t\"system\":{"<<endl;
             *pstrJsonfile<<"\t\t"<<std::left << std::setw(15)<<std::setfill(' ')<<"\"tstep\""<<": "<< "1e-9" <<"," <<endl;
             *pstrJsonfile<<"\t\t"<<std::left << std::setw(15)<<std::setfill(' ')<<"\"tsim\""<<": " << "1e-3"<<"," <<endl;
-            *pstrJsonfile<<"\t\t"<<std::left << std::setw(15)<<std::setfill(' ')<<"\"tracefile\""<<": \" " << "vcd"<<"\"," <<endl;
+            *pstrJsonfile<<"\t\t"<<std::left << std::setw(15)<<std::setfill(' ')<<"\"tracefile\""<<": \" " << "vcd"<<"\"" <<endl;
             *pstrJsonfile<<"\t}"<<endl;
             *pstrJsonfile<<"}"<<endl;
             
