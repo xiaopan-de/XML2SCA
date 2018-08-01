@@ -86,7 +86,7 @@ PROJECT_NAME
 ```
 
 ## 2.2  Build project  
-1. Set an environment variables for SysremC and SystemC-AMS
+1. Set environment variables for SysremC and SystemC-AMS
 ```shell
 export SYSTEMC_BASE = PathToInstallationSystemC/systemc-2.3.0
 export SYSTEMCAMS_BASE = PathToInstallationSystemCAMS/systemc_ams
