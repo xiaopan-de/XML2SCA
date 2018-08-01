@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCSCA_Project>
+  <info name="ect_sc" author = "Xiao Pan (pan@cs.uni-kl.de)" date="2018-06-07" toplevelOnly="false" desc= " "/>
+  <!-- Module sine wage generator (sensor) -->
+  <module name="app_sensor"    type="sca" 		moc="tdf" 	desc="Accelerator Pedal Position Sensor">
+    <port_out  name="pos"   ptype="sc_core::sc_out"  dtype ="double"  desc= "Accelerator Pedal Position to Throttle Position (angle in rad)" />
+    <cpara     name="sig_vec"    dtype="std::vector<double>"          defval=""      desc= "signal form, in vector" />
+    <cpara     name="repeat"    dtype="int"          defval=""      desc= "Output wave repeat times, repeat forever if negative" />
+  </module>
+  <!-- Top level -->
+</SCSCA_Project>

@@ -237,7 +237,7 @@ namespace xml2sca
             inoutport port;
             if(!get_port( portin, &port))
             {
-                log<<"[XML Parse Error]:  " <<module.name <<" module failed to add input port. "<<endl;
+                log<<"[XML Parse Error]: " <<module.name <<" module failed to add input port. "<<endl;
                 return false;
             }
             else

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCSCA_Project>
+  <info name="first_sca" author = "Xiao Pan (pan@cs.uni-kl.de)" date="2018-06-28" toplevelOnly="false" desc= "My First SystemC-AMS Project"/>
+  <!-- Module sine wage generator (sensor) -->
+  <module name="sca_tdf_amp"    type="sca" 		moc="tdf" 	desc="Generic SystemC-AMS Amplifier Module ">
+    <port_in   name="1"     ptype="sca_tdf::sca_in"   dtype ="double"  desc= "input signal" />
+    <port_out  name="1"     ptype="sca_tdf::sca_out"  dtype ="double"  desc= "output signal" />
+    <cpara     name="gain"       dtype="double"          defval="100"       desc= "amplifier gain" />
+    <cpara     name="dom_pole"   dtype="double"          defval="5.0e8"     desc= "dominant pole" />
+    <cpara     name="lmit"       dtype="double"          defval="5.0"       desc= "amplifier limitation" />
+  </module>
+  <!-- Top level -->
+</SCSCA_Project>
